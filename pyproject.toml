@@ -1,0 +1,27 @@
+[project]
+name = "mahala-chirps-pipeline"
+version = "1.0.0"
+description = "CHIRPS v2.0 rainfall score lookup-table pipeline for the Mahala AOI (Gedaref, Sudan)"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "numpy==2.4.6",
+    "rasterio==1.5.0",
+    # tools/google_sheets_lookup.py builds the .xlsx workbook.
+    "openpyxl==3.1.5",
+]
+
+# Optional: only needed for the NDVI sub-pipeline (ndvi_run_pipeline.py) and its
+# Google Cloud Storage run archive (NDVI_GCS_ARCHIVE). Install with:
+#     pip install "mahala-chirps-pipeline[ndvi]"
+[project.optional-dependencies]
+ndvi = [
+    "earthengine-api==1.4.3",
+    "google-api-python-client==2.149.0",
+    "google-auth==2.36.0",
+    "google-cloud-storage==2.19.0",
+]
+
+# Scripts-only project (run-as-scripts pipeline), not an installable package.
+[tool.uv]
+package = false
