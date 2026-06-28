@@ -141,6 +141,26 @@ def export_baseline_imagery(ee, plots, run_dir, run_log, run_date):
     return failure_details, missing_details
 
 
+def assert_manifest_fresh(registry_csv=None, manifest_json=None):
+    """
+    Refuse to run on a stale plot manifest.
+
+    baseline.py reads plots_normalized.json (built by ndvi/registry.py). If the
+    registry CSV was edited but registry.py was not re-run, the manifest is older
+    than the CSV and new/edited plots would be silently ignored (the skip check
+    only compares the cells that already exist). Fail loudly instead.
+    """
+    reg = registry_csv or config.NDVI_PLOTS_REGISTRY
+    manifest = manifest_json or config.PLOTS_NORMALIZED_JSON
+    if reg.exists() and manifest.exists() and reg.stat().st_mtime > manifest.stat().st_mtime:
+        raise PipelineError(
+            STEP, "stale-manifest",
+            f"{manifest.name} is older than {reg.name} - the plot registry changed "
+            "but was not re-parsed, so new/edited plots would be ignored",
+            "run: python ndvi/registry.py   (then re-run baseline)", exit_code=3,
+        )
+
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Build the sector NDVI baselines.")
     parser.add_argument("--refresh", action="store_true",
@@ -406,6 +426,7 @@ def main() -> int:
 
     baseline_io.warn_if_legacy_baseline(STEP)
 
+    assert_manifest_fresh()
     plots = load_normalized_plots()
     if args.plot:
         wanted = set(args.plot)

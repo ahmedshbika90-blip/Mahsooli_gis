@@ -7,8 +7,3 @@ BP005,Alem Eldeen,rainfed,Gallabat Shargyah,Kaffai,polygon,"POLYGON((35.7831 13.
 BP006,Alem Eldeen,rainfed,Gallabat Shargyah,Kaffai,polygon,"POLYGON((35.7687217 13.4181717, 35.769935 13.4151117, 35.7803783 13.4246467, 35.7687217 13.4181717))",,,500,,2025,2nd plot; source P4 repeated P1 (ring already closed); centre point backup 13.4181617 35.7687567
 BP007,Mohamed Ahmed,rainfed,Alfashaga,,point,,13.9958333,36.2686111,850,,2023;2025,single point converted from DMS 13deg59'45"N 36deg16'07"E; radius derived from area
 BP008,Fawaz Ahmed Salih,irrigated,New Halfa,Faras West,point,,15.1321944,35.6990278,10,,2024,single point converted from DMS 15deg07'55.9"N 35deg41'56.5"E; radius derived from area
-BP009,Mohamed Ork Eldeen,irrigated,New Halfa,Leidig,point,,15.4878333,35.6150833,40,,2021,single point converted from DMS 15deg29'16.2"N 35deg36'54.3"E; radius derived from area
-BP010,Mohamed Ork Eldeen,irrigated,New Halfa,Leidig,point,,15.4904167,35.6179722,15,,2024,single point converted from DMS 15deg29'25.8"N 35deg37'04.7"E; radius derived from area
-BP011,Mohamed Ork Eldeen,irrigated,New Halfa,Leidig,point,,15.4946111,35.6227778,15,,2025,single point converted from DMS 15deg29'40.6"N 35deg37'22.0"E; radius derived from area
-BP012,Siraj Eldeen,irrigated,New Halfa,Degheim,point,,15.4895556,35.5154167,90,,2024,single point converted from DMS 15deg29'22.4"N 35deg30'55.8"E; radius derived from area
-BP013,Siraj Eldeen,irrigated,New Halfa,Degheim,point,,15.4971667,35.5135000,90,,2024,single point converted from DMS 15deg29'49.8"N 35deg30'48.6"E; radius derived from area
